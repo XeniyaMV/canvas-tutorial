@@ -9,14 +9,17 @@ const context = canvas.getContext('2d');
 
 let dx = 5;
 let dy = 5;
-const r = 10;
+const r = 25;
 const startPoint = {x: r, y: r};
 function animation() {
   context.clearRect(0, 0, canvasW, canvasH);
   context.beginPath();
   context.arc(startPoint.x, startPoint.y, r, 0, 2 * Math.PI, true);
-  context.strokeStyle = 'blue';
+  context.strokeStyle = 'grey';
+  // context.lineWidth = 5;
+  context.fillStyle = "orange";
   context.stroke();
+  context.fill();
   
   if (startPoint.x + dx + r > canvasW || startPoint.x + dx - r < 0)  dx = -dx;
   if (startPoint.y + dy + r> canvasH || startPoint.y + dy - r < 0)  dy = -dy;
@@ -27,5 +30,3 @@ function animation() {
 }
 
 requestAnimationFrame(animation);
-// cancelAnimationFrame(id);
-
